@@ -1,0 +1,8 @@
+*
+!*.java
+!pom.xml
+
+!/.gitignore
+!README.MD
+
+!*/
