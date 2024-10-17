@@ -1,6 +1,8 @@
 # Lab 0
 
-### Task 
+### Author: Nejintev Nicolai, FAF-221
+
+### Task
 
 Implement 2 SOLID letters in a simple project.
 
@@ -14,3 +16,8 @@ I created a simple CLI application that stores an encrypted To-Do List in memory
   Class `ToDoList` does not do encryption, and classes `CaesarCipher`, `DummyCipher` don't do storage.
 - **Dependency Inversion Principle**: The `CLI` class depends on the abstraction (`EncryptionMethod` interface) and not
   on the implementation. This allows for implementation decision in runtime.
+
+### Results, Conclusions
+
+![results](../../../../resources/lab0/img.png)
+
