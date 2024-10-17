@@ -22,7 +22,7 @@ public class CLI {
         String command = "";
         while (!command.equals("exit")) {
             System.out.println();
-            System.out.println("Choose an option: (add, list, remove, exit)");
+            System.out.println("Choose an option: (add, list, raw, remove, exit)");
             command = this.scanner.nextLine();
             System.out.println();
 
@@ -39,6 +39,10 @@ public class CLI {
                         String decryptedTask = this.cipher.decrypt(tasks.get(i));
                         System.out.printf("%d: %s\n", i, decryptedTask);
                     }
+                    break;
+                case "raw":
+                    System.out.println("Encrypted To-Do List Data:");
+                    this.toDoList.getItems().forEach(System.out::println);
                     break;
                 case "remove":
                     System.out.println("Enter the index to remove:");
