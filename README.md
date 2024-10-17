@@ -6,7 +6,7 @@ Tasks for TMPS course
 
 Requires maven, use `maven package -Dlab=<LAB_NUMBER>`, where `<LAB_NUMBER>` is 0, 1, 2, etc...
 
-## Lab0
+- [Lab0](./src/main/java/lab0/README.md)
 
 
 
