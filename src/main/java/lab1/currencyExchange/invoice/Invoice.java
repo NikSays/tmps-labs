@@ -12,7 +12,7 @@ public class Invoice {
     public Invoice() {
     }
 
-    public Float getOriginalAmount() {
+    public float getOriginalAmount() {
         return this.originalAmount;
     }
 
@@ -28,7 +28,7 @@ public class Invoice {
         return this.tax;
     }
 
-    public Float getExchangedAmount() {
+    public float getExchangedAmount() {
         float originRate = RateService.getInstance().getRate(this.originCurrency);
         float targetRate = RateService.getInstance().getRate(this.targetCurrency);
         float afterTax = (100F - (float) this.tax) / 100F;

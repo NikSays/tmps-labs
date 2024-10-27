@@ -3,9 +3,10 @@ package lab1.currencyExchange.payment;
 import lab1.currencyExchange.invoice.Invoice;
 
 public class CashPayment implements Payment {
-    String customerName;
-    String customerIDNP;
-    Invoice invoice;
+    final String customerName;
+    final String customerIDNP;
+    final Invoice invoice;
+
     protected CashPayment(String name, String idnp, Invoice invoice) {
         this.customerName = name;
         this.customerIDNP = idnp;

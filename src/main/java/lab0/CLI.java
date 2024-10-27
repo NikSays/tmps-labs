@@ -35,7 +35,7 @@ public class CLI {
                 case "list":
                     System.out.println("To-Do List:");
                     List<String> tasks = this.toDoList.getItems();
-                    for (int i = 0; i < tasks.size(); i++){
+                    for (int i = 0; i < tasks.size(); i++) {
                         String decryptedTask = this.cipher.decrypt(tasks.get(i));
                         System.out.printf("%d: %s\n", i, decryptedTask);
                     }

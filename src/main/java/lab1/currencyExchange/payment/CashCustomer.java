@@ -3,7 +3,7 @@ package lab1.currencyExchange.payment;
 import lab1.currencyExchange.invoice.Invoice;
 
 public class CashCustomer extends Customer {
-    String idnp;
+    final String idnp;
 
     public CashCustomer(String name, String idnp) {
         super(name);

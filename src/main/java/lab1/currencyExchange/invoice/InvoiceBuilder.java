@@ -33,10 +33,11 @@ public class InvoiceBuilder implements Builder {
         return this;
     }
 
-    public Builder setTax(int percent) {
+    public InvoiceBuilder setTax(int percent) {
         if (percent < 0 || percent > 100) {
             throw new IllegalArgumentException("Tax must be between 0% and 100%");
         }
+        this.invoice.tax = percent;
         return this;
     }
 

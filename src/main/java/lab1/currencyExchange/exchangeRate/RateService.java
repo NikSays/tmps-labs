@@ -1,8 +1,5 @@
 package lab1.currencyExchange.exchangeRate;
 
-import lab1.currencyExchange.invoice.Invoice;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RateService {
@@ -26,7 +23,7 @@ public class RateService {
         return this.rates.get(currency);
     }
 
-    public void setRate(Currency currency, Float rate) {
+    public void setRate(Currency currency, float rate) {
         if (currency == Currency.MDL) {
             throw new IllegalArgumentException("Currency exchange rate for MDL cannot be set");
         }

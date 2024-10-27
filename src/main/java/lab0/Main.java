@@ -35,6 +35,7 @@ public class Main {
 
         scanner.close();
     }
+
     private static MonoalphabeticCipher buildMonoalphabeticCipher(Scanner scanner) throws Exception {
         System.out.println("Enter shuffled alphabet (26 letters):");
         String shuffledAlphabet = scanner.nextLine().toUpperCase();
@@ -44,7 +45,7 @@ public class Main {
         return new MonoalphabeticCipher(shuffledAlphabet);
     }
 
-    public static CaesarCipher buildCaesarCipher(Scanner scanner) throws Exception {
+    public static CaesarCipher buildCaesarCipher(Scanner scanner) {
         System.out.println("Enter Caesar Cipher shift (0-25):");
         int shift = Integer.parseInt(scanner.nextLine());
         return new CaesarCipher(shift);
