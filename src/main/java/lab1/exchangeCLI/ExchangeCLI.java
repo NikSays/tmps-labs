@@ -14,9 +14,12 @@ import java.util.Scanner;
 public class ExchangeCLI {
     final private Scanner scanner;
     private int tax = 0;
+    private final InvoiceBuilder invoiceBuilder;
+
 
     public ExchangeCLI(Scanner scanner) {
         this.scanner = scanner;
+        this.invoiceBuilder = new InvoiceBuilder();
     }
 
     public void run() throws Exception {
@@ -134,8 +137,7 @@ public class ExchangeCLI {
                 throw new Exception("Invalid payment type returned");
         }
 
-        InvoiceBuilder invoiceBuilder = new InvoiceBuilder();
-        this.handleCustomer(customer, invoiceBuilder);
+        this.handleCustomer(customer);
     }
 
     private String getPaymentType() {
@@ -156,7 +158,7 @@ public class ExchangeCLI {
         }
     }
 
-    private void handleCustomer(Customer customer, InvoiceBuilder invoiceBuilder) {
+    private void handleCustomer(Customer customer) {
         while (true) {
             System.out.println("\nWhat will the customer do?");
             System.out.println("""
@@ -166,7 +168,7 @@ public class ExchangeCLI {
             String b = this.scanner.nextLine();
             switch (b) {
                 case "e":
-                    this.exchange(customer, invoiceBuilder);
+                    this.exchange(customer);
                     break;
                 case "l":
                     System.out.println("Goodbye!");
@@ -178,7 +180,7 @@ public class ExchangeCLI {
         }
     }
 
-    private void exchange(Customer customer, InvoiceBuilder invoiceBuilder) {
+    private void exchange(Customer customer) {
         System.out.println("\nFrom which currency?");
         Currency origin = this.getCurrency();
 
@@ -188,7 +190,7 @@ public class ExchangeCLI {
         System.out.println("\nTo which currency");
         Currency target = this.getCurrency();
 
-        Invoice invoice = invoiceBuilder.
+        Invoice invoice = this.invoiceBuilder.
                 reset().
                 setAmount(amount).
                 setOriginCurrency(origin).
