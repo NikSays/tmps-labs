@@ -7,19 +7,25 @@ import lab2.currencyExchange.invoice.InvoiceBuilder;
 import lab2.currencyExchange.payment.CardCustomer;
 import lab2.currencyExchange.payment.CashCustomer;
 import lab2.currencyExchange.payment.Customer;
+import lab2.currencyExchange.payment.LoggedPayment;
+import lab2.logging.Logger;
+import lab2.logging.LoggingFacade;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ExchangeCLI {
     final private Scanner scanner;
-    private final InvoiceBuilder invoiceBuilder;
+    private final Logger logger;
     private int tax = 0;
+    private final InvoiceBuilder invoiceBuilder;
 
 
-    public ExchangeCLI(Scanner scanner) {
+    public ExchangeCLI(Scanner scanner) throws IOException {
         this.scanner = scanner;
         this.invoiceBuilder = new InvoiceBuilder();
+        this.logger = new LoggingFacade("./log.txt", "https://postman-echo.com/post");
     }
 
     public void run() throws Exception {
@@ -199,7 +205,8 @@ public class ExchangeCLI {
                 getResult();
 
         System.out.println();
-        customer.createPayment(invoice).execute();
+        LoggedPayment payment = new LoggedPayment(this.logger, customer.createPayment(invoice));
+        payment.execute();
     }
 
     private Currency getCurrency() {
