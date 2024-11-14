@@ -8,8 +8,8 @@ import lab2.currencyExchange.payment.CardCustomer;
 import lab2.currencyExchange.payment.CashCustomer;
 import lab2.currencyExchange.payment.Customer;
 import lab2.currencyExchange.payment.LoggedPayment;
+import lab2.logging.EverywhereLogger;
 import lab2.logging.Logger;
-import lab2.logging.LoggingFacade;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
@@ -25,7 +25,7 @@ public class ExchangeCLI {
     public ExchangeCLI(Scanner scanner) throws IOException {
         this.scanner = scanner;
         this.invoiceBuilder = new InvoiceBuilder();
-        this.logger = new LoggingFacade("./log.txt", "https://postman-echo.com/post");
+        this.logger = new EverywhereLogger("./log.txt", "https://postman-echo.com/post");
     }
 
     public void run() throws Exception {

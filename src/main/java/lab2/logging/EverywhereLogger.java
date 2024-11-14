@@ -8,12 +8,12 @@ import lab2.logging.destinations.StdOutLogger;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class LoggingFacade implements Logger {
+public class EverywhereLogger implements Logger {
     private final Logger file;
     private final Logger stdio;
     private final Logger remote;
 
-    public LoggingFacade(String file, String url) throws IOException {
+    public EverywhereLogger(String file, String url) throws IOException {
         this.file = new FileLoggerAdapter(new LegacyFileLogger(new FileWriter(file, true)));
         this.stdio = new StdOutLogger();
         this.remote = new RemoteLogger(url);

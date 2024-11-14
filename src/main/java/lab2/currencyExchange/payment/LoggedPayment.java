@@ -11,7 +11,6 @@ public class LoggedPayment implements Payment {
         this.payment = payment;
     }
 
-    @Override
     public void execute() {
         this.logger.log("Preparing to execute payment");
         this.payment.execute();
