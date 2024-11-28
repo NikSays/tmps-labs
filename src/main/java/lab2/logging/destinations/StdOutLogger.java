@@ -8,11 +8,12 @@ import java.util.Date;
 public class StdOutLogger implements Logger {
 
     public void log(String... msg) {
-        String logStr = "";
-        logStr += new SimpleDateFormat("hh:mm:ss").format(new Date());
-        logStr += " -- ";
-        logStr += String.join(" ", msg);
-        System.out.println(logStr);
+        String date = new SimpleDateFormat("hh:mm:ss").format(new Date());
+        System.out.print(date + " -- ");
+        for (int i = 0; i < msg.length; i++) {
+            System.out.print(msg[i] + " ");
+        }
+        System.out.println();
     }
 
     public void logf(String fmt, String... values) {

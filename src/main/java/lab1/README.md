@@ -1,6 +1,5 @@
 # Creational Design Patterns
 
-
 ## Author: Nejințev Nicolai
 
 ----
@@ -22,7 +21,7 @@
 I have created a currency exchange system with:
 
 * RateService – a singleton that holds the exchange rates for different currencies.
-* InvoiceBuilder – a builder with one implementation that builds valid invoices. 
+* InvoiceBuilder – a builder with one implementation that builds valid invoices.
   The invoices need to be paid with a Payment.
 * Customer – a factory for payments with two implementations:
     * CashCustomer – creates CashPayments.
@@ -33,6 +32,7 @@ The InvoiceBuilder is created once by the ExchangeCLI, and then reused. The Cust
 a new customer interaction is started, but kept between exchanges by the same user.
 
 Run with this command:
+
 ```bash
 mvn package -Dlab=1 && java -jar ./target/lab1.jar 
  ```
@@ -40,6 +40,7 @@ mvn package -Dlab=1 && java -jar ./target/lab1.jar
 ### Snippets
 
 **RateService Singleton**
+
 ```java
 public class RateService {
     private static RateService instance;
@@ -76,11 +77,10 @@ Invoice invoice = this.invoiceBuilder.
 customer.createPayment(invoice).execute();
 ```
 
-
 ## Conclusions / Screenshots / Results
 
 Using Creation Design Patterns makes the structure of the project more complex. But this way, the complexity is hidden
-in the implementation, and the client can use a simple abstraction API. 
+in the implementation, and the client can use a simple abstraction API.
 
 Using these patterns comes at a cost. If the client logic is simple as-is, it will only complicate the implementation,
 without much benefit to the client code.
